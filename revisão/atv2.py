@@ -1,3 +1,9 @@
+'''Suponha que um dado problema requer o uso de duas pilhas, onde cada pilha suporta
+no máximo 50 elementos e em nenhum momento as duas pilhas terão juntas mais do que
+80 elementos. Assim, é possível implementar as duas pilhas em um único vetor usando
+apenas 80 posições ao invés de 100. Implemente a estrutura de dados e as de empilhar e
+desempilhar para estas duas pilhas'''
+
 class DuasPilhas:
 
     #Construção da classe
