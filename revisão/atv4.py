@@ -1,3 +1,16 @@
+'''Escreva um programa que simule o controle de uma pista de decolagem de aviões em
+um aeroporto. Neste programa, o usuário deve ser capaz de realizar as seguintes tarefas:
+a) Listar o número de aviões aguardando na fila de decolagem;
+b) Autorizar a decolagem do primeiro avião da fila;
+c) Adicionar um avião à fila de espera;
+d) Listar todos os aviões na fila de espera;
+e) Listar as características do primeiro avião da fila.
+Considere que os aviões possuem um nome e um número inteiro como identificador.
+Adicione outras características conforme achar necessário.
+'''
+
+
+
 class Aviao:
     def __init__(self, nome, identificador):
         self.nome = nome
@@ -12,10 +25,12 @@ class Aeroporto:
     def __init__(self):
         self.fila_decolagem = []
 
+    #listar todos os aviões que estão na fila 
     def listar_avioes_aguardando(self):
         quantidade = len(self.fila_decolagem)
         print("Número de aviões aguardando decolagem:", quantidade)
 
+    #remover os aviões que decolaram
     def autorizar_decolagem(self):
         if self.fila_decolagem:
             aviao = self.fila_decolagem.pop(0)
@@ -23,10 +38,12 @@ class Aeroporto:
         else:
             print("Não há aviões aguardando na fila de decolagem")
 
+    #adiciona avião no final da fila
     def adicionar_aviao(self, aviao):
         self.fila_decolagem.append(aviao)
         print("Avião", aviao.nome, "adicionado à fila de espera")
 
+    #aviões que estão na fila de espera para decolar
     def listar_avioes_espera(self):
         if self.fila_decolagem:
             print("Aviões na fila de espera:")
@@ -60,22 +77,29 @@ while True:
     print("e) Listar características do primeiro avião na fila")
     print("s) Sair do programa")
 
+    #opção recebe os valores do usuário
     opcao = input("Escolha uma opção: ")
 
     if opcao == "a":
         aeroporto.listar_avioes_aguardando()
+
     elif opcao == "b":
         aeroporto.autorizar_decolagem()
+
     elif opcao == "c":
         nome = input("Digite o nome do avião: ")
         identificador = int(input("Digite o identificador do avião: "))
         aviao = Aviao(nome, identificador)
         aeroporto.adicionar_aviao(aviao)
+
     elif opcao == "d":
         aeroporto.listar_avioes_espera()
+
     elif opcao == "e":
         aeroporto.listar_caracteristicas_primeiro_aviao()
+
     elif opcao == "s":
         break
+    
     else:
         print("Opção inválida. Por favor, escolha uma opção válida.")
