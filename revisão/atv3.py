@@ -24,10 +24,17 @@ class Pilha:
 
 
     #recebe texto como entrada e remove os caracteres especiais presentes
-    #
     def remover_caracteres_especiais(texto):
+        #lista q contém os caracteres especiais que devem ser removidos
+        #do texto
         caracteres_especiais = [' ', '.']
+        #A função utiliza uma expressão geradora (list comprehension) para iterar 
+        # sobre cada caractere c no texto e verificar se ele não está presente na lista de caracteres 
+        # especiais (c not in caracteres_especiais). Em seguida, a função join é utilizada para 
+        # concatenar os caracteres que não são especiais em uma nova string, que é retornada como 
+        # resultado.
         return ''.join(c for c in texto if c not in caracteres_especiais)
+
 
     #A função inverter_texto recebe um texto como entrada e retorna o texto invertido. 
     #pilha recebe os métodos da classe PIlha
